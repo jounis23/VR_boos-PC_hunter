@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class Player : Entity
 {
     private float moveX;
@@ -8,6 +9,7 @@ public class Player : Entity
 
     private Rigidbody rigid;
 
+    public Image[] skill = new Image[5];
  
 
 
@@ -70,6 +72,14 @@ public class Player : Entity
             {
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (Act(STATE.ATTACK))
+            {
+                StartCoroutine(SkillCooldownTime(0));
+                    
+            }
+        }
 
     }
 
@@ -118,5 +128,21 @@ public class Player : Entity
         yield return new WaitForSeconds(totalTime - 0.75f);
         state = STATE.IDLE;
         animator.SetTrigger("IDLE");
+    }
+
+    IEnumerator SkillCooldownTime(int i_skill)
+    {
+        skill[i_skill].fillAmount = 0;
+        while (true)
+        {
+            if (skill[i_skill].fillAmount < 1)
+                skill[i_skill].fillAmount += Time.deltaTime/3;
+            else
+            {
+                break;
+            }
+            yield return null;
+        }
+        yield return null;
     }
 }
