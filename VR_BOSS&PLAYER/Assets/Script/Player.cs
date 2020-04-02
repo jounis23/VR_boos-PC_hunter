@@ -30,7 +30,6 @@ public class Player : Entity
             return;
             */
 
-
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
