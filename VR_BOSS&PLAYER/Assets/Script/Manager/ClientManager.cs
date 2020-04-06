@@ -22,7 +22,7 @@ public class ClientManager : MonoBehaviourPun
 
     public bool isRegist;
 
-    private LoginManager loginManager;
+    public LoginManager loginManager;
 
     public void Awake()
     {
@@ -30,6 +30,19 @@ public class ClientManager : MonoBehaviourPun
         DontDestroyOnLoad(this.gameObject);
         isMaster = PhotonNetwork.IsMasterClient;
 
+        GameObject master = GameObject.FindGameObjectWithTag("Host");
+        if (master == null && isMaster)
+        {
+            this.gameObject.name = "Host";
+            this.gameObject.tag = "Host";
+        }
+        else
+        {
+            this.transform.name = "Client_" + photonView.ViewID;
+        }
+
+        if (!photonView.IsMine)
+            gameObject.SetActive(false);
     }
 
     public void Start()
@@ -38,26 +51,16 @@ public class ClientManager : MonoBehaviourPun
         button.interactable = false;
         loginManager = FindObjectOfType<LoginManager>();
 
-        if(loginManager == null)
-        {
-            ClientManager[] clients = FindObjectsOfType<ClientManager>();
-            foreach (ClientManager c in clients)
-            {
-                if (c.isMaster)
-                    loginManager = c.loginManager;
-
-                if (!c.photonView.IsMine)
-                    c.canvas.gameObject.SetActive(false);
-            }
-        }
 
     }
 
 
+    [PunRPC]
     public void Regist()
     {
         if (!photonView.IsMine)
             return;
+
 
         isRegist = (buttonRegist.GetComponentInChildren<Text>().text == "Regist");
 
@@ -87,20 +90,39 @@ public class ClientManager : MonoBehaviourPun
 
 
 
-
     public void OnButton()
     {
         if (!photonView.IsMine)
             return;
 
-        if (isRegist)
+        AccessDB(isRegist, idFiled.text, passFiled.text);
+    }
+
+
+    [PunRPC]
+    public void AccessDB(bool isRegi, string id, string pass)
+    {
+
+        Debug.Log(this.gameObject.name + ":"+ id + "/" + pass);
+        if (!isMaster)
         {
-            loginManager.CallRegister(idFiled.text, passFiled.text);
+            photonView.RPC("AccessDB", RpcTarget.MasterClient, isRegi, id, pass);
         }
         else
         {
-            loginManager.CallLogin(idFiled.text, passFiled.text);
+
+            loginManager = FindObjectOfType<LoginManager>();
+
+            if (isRegi)
+            {
+                loginManager.CallRegister(id, pass);
+            }
+            else
+            {
+                loginManager.CallLogin(id, pass, this.gameObject);
+            }
         }
+
     }
 
 
@@ -113,4 +135,23 @@ public class ClientManager : MonoBehaviourPun
         button.interactable = (idFiled.text.Length >= 4 && passFiled.text.Length >= 8);
 
     }
+
+
+
+    [PunRPC]
+    public void LoadPlayScene()
+    {
+        if (isMaster)
+        {
+            photonView.RPC("LoadPlayScene", RpcTarget.Others);
+            return;
+        }
+        else if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        PhotonNetwork.LoadLevel("Main");
+    }
+
 }

@@ -52,12 +52,12 @@ public class LoginManager : MonoBehaviour
 
 
 
-    public void CallLogin(string id, string pass)
+    public void CallLogin(string id, string pass, GameObject client)
     {
-        StartCoroutine(Login(id, pass));
+        StartCoroutine(Login(id, pass, client));
     }
 
-    IEnumerator Login(string id, string pass)
+    IEnumerator Login(string id, string pass, GameObject client)
     {
         WWWForm form = new WWWForm();
         form.AddField("Id", id);
@@ -71,6 +71,12 @@ public class LoginManager : MonoBehaviour
         {
             textInfo.text = "User Login Success";
 
+            Debug.Log(client.name + " Login");
+            ClientManager c = client.GetComponent<ClientManager>();
+            if (c)
+            {
+                c.LoadPlayScene();
+            }
         }
         else
         {

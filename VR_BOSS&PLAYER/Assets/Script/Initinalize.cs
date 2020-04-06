@@ -8,7 +8,7 @@ public class Initinalize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PhotonNetwork.Instantiate("ClientManager", Vector3.zero, Quaternion.identity);
+        PhotonNetwork.Instantiate("Client", Vector3.zero, Quaternion.identity);
 
         if(PhotonNetwork.IsMasterClient)
             PhotonNetwork.Instantiate("LoginManager", Vector3.zero, Quaternion.identity);
