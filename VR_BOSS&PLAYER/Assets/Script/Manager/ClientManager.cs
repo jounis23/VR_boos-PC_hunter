@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System.IO;
 
 public class ClientManager : MonoBehaviourPun
 {
@@ -43,6 +44,13 @@ public class ClientManager : MonoBehaviourPun
 
         if (!photonView.IsMine)
             gameObject.SetActive(false);
+
+
+
+        using (StreamWriter outputFile = new StreamWriter(@"Log.txt", true))
+        {
+            outputFile.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " = " + this.name + " : Entry Room");
+        }
     }
 
     public void Start()
@@ -103,7 +111,17 @@ public class ClientManager : MonoBehaviourPun
     public void AccessDB(bool isRegi, string id, string pass)
     {
 
-        Debug.Log(this.gameObject.name + ":"+ id + "/" + pass);
+        using (StreamWriter outputFile = new StreamWriter(@"Log.txt", true))
+        {
+            string access = "";
+            if (isRegi)
+                access = "Regist";
+            else
+                access = "Login";
+
+            outputFile.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd") + " = " + this.name + " : Access DataBase ( " + access +" = Id : " + id +" / Password : " + pass +")");
+        }
+
         if (!isMaster)
         {
             photonView.RPC("AccessDB", RpcTarget.MasterClient, isRegi, id, pass);

@@ -2,6 +2,7 @@
 using Photon.Realtime; // 포톤 서비스 관련 라이브러리
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 // 마스터(매치 메이킹) 서버와 룸 접속을 담당
 public class LobbyManager : MonoBehaviourPunCallbacks {
@@ -53,14 +54,19 @@ public class LobbyManager : MonoBehaviourPunCallbacks {
     public override void OnJoinRandomFailed(short returnCode, string message) {
 
         connectionInfoText.text = "새로운 방 생성";
+
         PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 4});
+
+        using (StreamWriter outputFile = new StreamWriter(@"Log.txt", true))
+        {
+            outputFile.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " = " + "Host : Create Room");
+        }
     }
 
     // 룸에 참가 완료된 경우 자동 실행
     public override void OnJoinedRoom() {
 
         connectionInfoText.text = "방 참가 성공";
-        Debug.Log("ASDF" + PhotonNetwork.IsMasterClient);
         PhotonNetwork.LoadLevel("Login");
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System.IO;
 
 public class LoginManager : MonoBehaviour
 {
@@ -41,10 +42,18 @@ public class LoginManager : MonoBehaviour
         {
             textInfo.text = "User Register Success";
 
+            using (StreamWriter outputFile = new StreamWriter(@"Log.txt", true))
+            {
+                outputFile.WriteLine("\t\t\tRegister Success");
+            }
         }
         else
         {
             textInfo.text = www.text;
+            using (StreamWriter outputFile = new StreamWriter(@"Log.txt", true))
+            {
+                outputFile.WriteLine("\t\t\tRegister Login Fail" + www.text);
+            }
 
         }
     }
@@ -69,9 +78,12 @@ public class LoginManager : MonoBehaviour
 
         if (www.text.Contains("Success"))
         {
-            textInfo.text = "User Login Success";
 
-            Debug.Log(client.name + " Login");
+
+            using (StreamWriter outputFile = new StreamWriter(@"..\..\Log.txt", true))
+            {
+                outputFile.WriteLine("\t\tUser Login Success");
+            }
             ClientManager c = client.GetComponent<ClientManager>();
             if (c)
             {
@@ -81,6 +93,10 @@ public class LoginManager : MonoBehaviour
         else
         {
             textInfo.text = www.text;
+            using (StreamWriter outputFile = new StreamWriter(@"..\..\Log.txt", true))
+            {
+                outputFile.WriteLine("\t\tUser Login Fail"+ www.text);
+            }
 
         }
     }
