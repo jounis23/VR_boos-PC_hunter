@@ -924,7 +924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1952331909820816, guid: 17c6030169b01704bb45332ee33ef6fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003159189896178, guid: 17c6030169b01704bb45332ee33ef6fd, type: 3}
       propertyPath: m_RootOrder
@@ -1881,7 +1881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357196030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.35, y: 0, z: 0}
+  m_LocalPosition: {x: -13.43, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1732728321}
@@ -1923,10 +1923,10 @@ MonoBehaviour:
   - {fileID: 1072099879}
   skillKey: 31000000320000003300000034000000
   skillCoolTime:
-  - 10
-  - 15
-  - 20
-  - 25
+  - 1
+  - 1
+  - 1
+  - 1
   classEntity: {fileID: 1357196033}
 --- !u!114 &1357196033
 MonoBehaviour:
