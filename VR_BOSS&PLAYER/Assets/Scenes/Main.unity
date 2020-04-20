@@ -1923,10 +1923,10 @@ MonoBehaviour:
   - {fileID: 1072099879}
   skillKey: 31000000320000003300000034000000
   skillCoolTime:
-  - 1
-  - 1
-  - 1
-  - 1
+  - 5
+  - 8
+  - 3
+  - 8
   classEntity: {fileID: 1357196033}
 --- !u!114 &1357196033
 MonoBehaviour:
