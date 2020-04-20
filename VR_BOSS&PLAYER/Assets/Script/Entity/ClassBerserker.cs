@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassNight : ClassEntity
+public class ClassBerserker : ClassEntity
 {
 
     public override void Attack(Entity entity)
@@ -31,3 +31,4 @@ public class ClassNight : ClassEntity
         StartCoroutine(SkillEffectManage(skillEffect[3], skillTransfrom[3]));
     }
 }
+

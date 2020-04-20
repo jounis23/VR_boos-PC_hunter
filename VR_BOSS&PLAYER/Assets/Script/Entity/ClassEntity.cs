@@ -11,7 +11,8 @@ public class ClassEntity : MonoBehaviour
     public enum ClassName
     {
         Archer,
-        Night,
+        Berserker,
+        Knight,
         Sorceress
     }
 
