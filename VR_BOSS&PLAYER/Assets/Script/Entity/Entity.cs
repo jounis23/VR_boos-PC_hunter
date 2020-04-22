@@ -56,7 +56,7 @@ public class Entity : MonoBehaviourPun
 
     protected void Move(float x, float z)
     {
-        this.transform.position += new Vector3(x * status.speed * 0.5f , 0, z * status.speed * 0.5f);
+        this.transform.position += new Vector3(x * status.speed * 0.1f , 0, z * status.speed * 0.1f);
     }
 
 
