@@ -6,8 +6,11 @@ public class ClassEntity : MonoBehaviour
 {
     public ClassName className;
 
+
+    public GameObject attackEffect;
     public GameObject[] skillEffect;
     public Transform[] skillTransfrom;
+
     public enum ClassName
     {
         Archer,
@@ -42,11 +45,21 @@ public class ClassEntity : MonoBehaviour
 
     }
 
+    public IEnumerator SkillEffectManage(GameObject skillEffect, Transform skillTransfrom, float[] deltaTime)
+    {
+        foreach(float t in deltaTime)
+        {
+            GameObject skill = Instantiate(skillEffect, skillTransfrom);
+            Destroy(skill, 5);
+            yield return new WaitForSeconds(t);
+        }
+
+    }
     public IEnumerator SkillEffectManage(GameObject skillEffect, Transform skillTransfrom)
     {
-        GameObject skill= Instantiate(skillEffect, skillTransfrom);
-        yield return new WaitForSeconds(10.0f);
-        Destroy(skill);
+            GameObject skill = Instantiate(skillEffect, skillTransfrom);
+            Destroy(skill, 5);
+        yield return new WaitForSeconds(0.1f);
 
     }
 }

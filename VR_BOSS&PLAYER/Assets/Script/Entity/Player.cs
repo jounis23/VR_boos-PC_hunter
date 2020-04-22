@@ -165,6 +165,7 @@ public class Player : Entity
             if (Act(STATE.ATTACK))
             {
 
+                classEntity.Attack(this);
             }
         }
 

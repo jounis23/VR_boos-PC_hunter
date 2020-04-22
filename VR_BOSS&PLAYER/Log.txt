@@ -5,3 +5,4 @@
 			Register Success
 2020-04-21 19:46:32 = Client_2001 : Entry Room
 2020-04-21 19:49:21 = Host : Entry Room
+2020-04-22 15:14:41 = Host : Entry Room
