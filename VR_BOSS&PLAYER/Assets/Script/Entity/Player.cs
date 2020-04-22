@@ -197,7 +197,7 @@ public class Player : Entity
             if (skillresetTime[2] == 0 && Act(STATE.SKILL3))
             {
                 skillresetTime[2] = skillCoolTime[2];
-                classEntity.Skill3(this);
+                //classEntity.Skill3(this);
             }
         }
 
@@ -207,7 +207,7 @@ public class Player : Entity
             if (skillresetTime[3] == 0 && Act(STATE.SKILL4))
             {
                 skillresetTime[3] = skillCoolTime[3];
-                classEntity.Skill4(this);
+                //classEntity.Skill4(this);
             }
         }
     }
