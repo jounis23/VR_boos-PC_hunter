@@ -581,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &720945178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,6 +1109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 183434964641978275, guid: 5e8c6824211a4174d96d1c5c39a20096,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 987602835690745581, guid: 5e8c6824211a4174d96d1c5c39a20096,
         type: 3}
