@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hit : MonoBehaviour
+public class KnightHit : MonoBehaviour
 {
     public Player player;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -28,20 +26,14 @@ public class Hit : MonoBehaviour
                 enemy.status.hp -= player.status.atk - enemy.status.def;
                 break;
             case Entity.STATE.SKILL1:
-                
-                break;
-            case Entity.STATE.SKILL2:
-
-                break;
-            case Entity.STATE.SKILL3:
-                player.GetComponent<ClassEntity>().Skill3(player);
-                Debug.Log("하이루");
+                Debug.Log("hit");
+                player.GetComponent<ClassKnight>().Skill1Active();
                 break;
             case Entity.STATE.SKILL4:
-                player.GetComponent<ClassEntity>().Skill4(player);
-                Debug.Log("하이루");
+                player.GetComponent<ClassKnight>().Skill4Active();
                 break;
 
         }
     }
+
 }
