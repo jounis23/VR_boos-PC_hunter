@@ -165,7 +165,7 @@ public class Player : Entity
             if (Act(STATE.ATTACK))
             {
 
-                classEntity.Attack(this);
+                //classEntity.Attack(this);
             }
         }
 
@@ -175,7 +175,7 @@ public class Player : Entity
             if (skillresetTime[0] == 0 && Act(STATE.SKILL1))
             {
                 skillresetTime[0] = skillCoolTime[0];
-                classEntity.Skill1(this);
+                //classEntity.Skill1(this);
             }
 
         }
@@ -187,7 +187,7 @@ public class Player : Entity
             if (skillresetTime[1] == 0 && Act(STATE.SKILL2))
             {
                 skillresetTime[1] = skillCoolTime[1];
-                classEntity.Skill2(this);
+                //classEntity.Skill2(this);
             }
         }
 
@@ -198,7 +198,7 @@ public class Player : Entity
             if (skillresetTime[2] == 0 && Act(STATE.SKILL3))
             {
                 skillresetTime[2] = skillCoolTime[2];
-                classEntity.Skill3(this);
+                //classEntity.Skill3(this);
             }
         }
 
@@ -208,7 +208,7 @@ public class Player : Entity
             if (skillresetTime[3] == 0 && Act(STATE.SKILL4))
             {
                 skillresetTime[3] = skillCoolTime[3];
-                classEntity.Skill4(this);
+                //classEntity.Skill4(this);
             }
         }
     }

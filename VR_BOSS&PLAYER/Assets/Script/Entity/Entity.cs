@@ -82,6 +82,7 @@ public class Entity : MonoBehaviourPun
     public void Attacked(float damage)
     {
         status.hp -= (damage * (1 - status.def));
+        Debug.Log(this.name + " : " + status.hp);
 
         if (status.hp <= 0)
         {
