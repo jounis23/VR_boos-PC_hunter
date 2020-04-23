@@ -28,7 +28,9 @@ public class ClassBerserker : ClassEntity
 
     public override void Skill4(Entity entity)
     {
+        
         StartCoroutine(SkillEffectManage(skillEffect[3], skillTransfrom[3]));
     }
+    
 }
 
