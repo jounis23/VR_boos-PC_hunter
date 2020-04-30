@@ -12,23 +12,8 @@ public class Player : Entity
     private bool canMoveX = true;
     private bool canMoveY = true;
 
+    
     //public Rigidbody rigid;
-
-
-    // 스킬 아이콘 UI
-    public Image[] skillImage = new Image[4];
-
-    // 스킬 남은 쿨타임 UI
-    public Text[] skillText = new Text[4];
-
-    // 스킬 입력키 설정 (기본 1,2,3,4로 됨)
-    public KeyCode[] skillKey = new KeyCode[4];
-
-    // 각 스킬의 쿨타임
-    public float[] skillCoolTime = new float[4];
-
-    // 각 스킬의 현재 남은 쿨타임
-    private float[] skillresetTime = new float[4];
 
 
     // 각 직업별 스킬 구현 클래스
@@ -168,14 +153,20 @@ public class Player : Entity
                 classEntity.Attack(this);
             }
         }
-
+        
         // 스킬1
         if (Input.GetKeyDown(skillKey[0]))
         {
-            if (skillresetTime[0] == 0 && Act(STATE.SKILL1))
+            if (skillresetTime[0] == 0 && Act(classEntity.type[0]))
             {
-                skillresetTime[0] = skillCoolTime[0];
-                classEntity.Skill1(this);
+                if (classEntity.type[0] == STATE.CASTING)
+                    classEntity.CASTING(this, 0);
+                else
+                {
+                    skillresetTime[0] = skillCoolTime[0];
+                    classEntity.Skill1(this);
+
+                }
             }
 
         }
@@ -184,10 +175,16 @@ public class Player : Entity
         // 스킬2
         if (Input.GetKeyDown(skillKey[1]))
         {
-            if (skillresetTime[1] == 0 && Act(STATE.SKILL2))
+            if (skillresetTime[1] == 0 && Act(classEntity.type[1]))
             {
-                skillresetTime[1] = skillCoolTime[1];
-                classEntity.Skill2(this);
+                if (classEntity.type[1] == STATE.CASTING)
+                    classEntity.CASTING(this, 1);
+                else
+                {
+                    skillresetTime[1] = skillCoolTime[1];
+                    classEntity.Skill2(this);
+
+                }
             }
         }
 
@@ -195,20 +192,31 @@ public class Player : Entity
         // 스킬3
         if (Input.GetKeyDown(skillKey[2]))
         {
-            if (skillresetTime[2] == 0 && Act(STATE.SKILL3))
+            if (skillresetTime[2] == 0 && Act(classEntity.type[2]))
             {
-                skillresetTime[2] = skillCoolTime[2];
-                classEntity.Skill3(this);
+                if (classEntity.type[2] == STATE.CASTING)
+                    classEntity.CASTING(this, 2);
+                else
+                {
+                    skillresetTime[2] = skillCoolTime[2];
+                    classEntity.Skill3(this);
+
+                }
             }
         }
 
         // 스킬4
         if (Input.GetKeyDown(skillKey[3]))
         {
-            if (skillresetTime[3] == 0 && Act(STATE.SKILL4))
+            if (skillresetTime[3] == 0 && Act(classEntity.type[3]))
             {
-                skillresetTime[3] = skillCoolTime[3];
-                classEntity.Skill4(this);
+                if (classEntity.type[3] == STATE.CASTING)
+                    classEntity.CASTING(this, 3);
+                else
+                {
+                    skillresetTime[3] = skillCoolTime[3];
+                    classEntity.Skill4(this);
+                }
             }
         }
     }
@@ -221,7 +229,7 @@ public class Player : Entity
     // 애니메이션 실행
     public bool Act(STATE nextState)
     {
-        if (state != STATE.IDLE && state != STATE.RUN)
+        if (state != STATE.IDLE && state != STATE.RUN && state ==STATE.CASTING)
             return false;
         else if (nextState == STATE.RUN)
         {
@@ -236,6 +244,12 @@ public class Player : Entity
             animator.SetFloat("RunRight", 0);
             state = STATE.IDLE;
 
+            return true;
+        }
+        else if(nextState == STATE.CASTING)
+        {
+            state = STATE.CASTING;
+            animator.SetTrigger("CASTING");
             return true;
         }
         else if (state == nextState)
@@ -274,7 +288,6 @@ public class Player : Entity
     // 모든 애니메이션은 끝나면 IDLE 상태로 돌아옴
     IEnumerator AnimationState()
     {
-
         yield return new WaitForSeconds(1f);
         float totalTime = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(totalTime - 0.75f);

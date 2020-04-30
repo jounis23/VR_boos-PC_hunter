@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hit : MonoBehaviour
+public class BerserkerHit : MonoBehaviour
 {
     public Player player;
 
@@ -34,11 +34,11 @@ public class Hit : MonoBehaviour
 
                 break;
             case Entity.STATE.SKILL3:
-                player.GetComponent<ClassEntity>().Skill3(player);
+                //player.GetComponent<ClassEntity>().Skill3(player);
                 Debug.Log("하이루");
                 break;
             case Entity.STATE.SKILL4:
-                player.GetComponent<ClassEntity>().Skill4(player);
+                player.GetComponent<ClassBerserker>().Skill4Active();
                 Debug.Log("하이루");
                 break;
 

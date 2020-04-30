@@ -15,7 +15,7 @@ public class ClassKnight : ClassEntity
 
     public override void Skill1(Entity entity)
     {
-
+        StartCoroutine(SkillEffectManage(skillEffect[0], skillTransfrom[0]));
     }
 
     public override void Skill2(Entity entity)
@@ -37,7 +37,7 @@ public class ClassKnight : ClassEntity
     public void Skill1Active()
     {
         Debug.Log("Effect");
-        StartCoroutine(SkillEffectManage(skillEffect[0], skillTransfrom[0]));
+        //StartCoroutine(SkillEffectManage(skillEffect[0], skillTransfrom[0]));
     }
     public void Skill4Active()
     {

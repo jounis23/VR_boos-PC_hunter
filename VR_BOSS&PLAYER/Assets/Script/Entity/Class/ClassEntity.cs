@@ -6,6 +6,7 @@ public class ClassEntity : MonoBehaviour
 {
     public ClassName className;
 
+    public Entity.STATE[] type = {Entity.STATE.SKILL1, Entity.STATE.SKILL2, Entity.STATE.SKILL3, Entity.STATE.SKILL4};
 
     public GameObject attackEffect;
     public GameObject[] skillEffect;
@@ -19,6 +20,23 @@ public class ClassEntity : MonoBehaviour
         Sorceress
     }
 
+    public void Awake()
+    {
+        switch (className)
+        {
+            case ClassName.Archer:
+                break;
+            case ClassName.Berserker:
+                break;
+            case ClassName.Knight:
+                break;
+            case ClassName.Sorceress:
+                type[0] = Entity.STATE.CASTING;
+                type[3] = Entity.STATE.CASTING;
+                break;
+        }
+        Debug.Log(type[0]);
+    }
     public virtual void Attack(Entity entity)
     {
 
@@ -44,22 +62,30 @@ public class ClassEntity : MonoBehaviour
     {
 
     }
+    public virtual void CASTING(Entity entity, int num)
+    {
+
+    }
 
     public IEnumerator SkillEffectManage(GameObject skillEffect, Transform skillTransfrom, float[] deltaTime)
     {
         foreach(float t in deltaTime)
         {
             GameObject skill = Instantiate(skillEffect, skillTransfrom);
+            skill.transform.parent = null;
             Destroy(skill, 5);
             yield return new WaitForSeconds(t);
         }
 
     }
-    public IEnumerator SkillEffectManage(GameObject skillEffect, Transform skillTransfrom)
+    public IEnumerator SkillEffectManage(GameObject skillEffect, Transform skillTransfrom, bool isParent=true)
     {
-            GameObject skill = Instantiate(skillEffect, skillTransfrom);
-            Destroy(skill, 5);
+        GameObject skill = Instantiate(skillEffect, skillTransfrom);
+        if(!isParent)
+            skill.transform.parent = null;
+        Destroy(skill, 5);
         yield return new WaitForSeconds(0.1f);
 
     }
+
 }

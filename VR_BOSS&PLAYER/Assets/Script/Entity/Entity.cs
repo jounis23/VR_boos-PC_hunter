@@ -33,6 +33,7 @@ public class Entity : MonoBehaviourPun
         SKILL2,
         SKILL3,
         SKILL4,
+        CASTING,
         ATTACKED,
         DIE
     }
@@ -52,7 +53,22 @@ public class Entity : MonoBehaviourPun
 
     }
 
+    // 스킬 아이콘 UI
+    public Image[] skillImage = new Image[4];
 
+    // 스킬 남은 쿨타임 UI
+    public Text[] skillText = new Text[4];
+
+    // 스킬 입력키 설정 (기본 1,2,3,4로 됨)
+    public KeyCode[] skillKey = new KeyCode[4];
+
+    // 각 스킬의 쿨타임
+    public float[] skillCoolTime = new float[4];
+
+    // 각 스킬의 현재 남은 쿨타임
+    public float[] skillresetTime = new float[4];
+
+    public bool casting = false;
 
     protected void Move(float x, float z)
     {
