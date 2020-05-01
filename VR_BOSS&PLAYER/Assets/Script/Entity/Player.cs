@@ -229,7 +229,7 @@ public class Player : Entity
     // 애니메이션 실행
     public bool Act(STATE nextState)
     {
-        if (state != STATE.IDLE && state != STATE.RUN && state ==STATE.CASTING)
+        if (state != STATE.IDLE && state != STATE.RUN)
             return false;
         else if (nextState == STATE.RUN)
         {

@@ -9,6 +9,7 @@ public class ClassEntity : MonoBehaviour
     public Entity.STATE[] type = {Entity.STATE.SKILL1, Entity.STATE.SKILL2, Entity.STATE.SKILL3, Entity.STATE.SKILL4};
 
     public GameObject attackEffect;
+    public Transform attackTransfrom;
     public GameObject[] skillEffect;
     public Transform[] skillTransfrom;
 
@@ -32,6 +33,7 @@ public class ClassEntity : MonoBehaviour
                 break;
             case ClassName.Sorceress:
                 type[0] = Entity.STATE.CASTING;
+                type[2] = Entity.STATE.CASTING;
                 type[3] = Entity.STATE.CASTING;
                 break;
         }

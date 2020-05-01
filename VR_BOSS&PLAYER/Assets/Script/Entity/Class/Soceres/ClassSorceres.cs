@@ -10,31 +10,33 @@ public class ClassSorceres : ClassEntity
 
     public override void Attack(Entity entity)
     {
-
+        StartCoroutine(SkillEffectManage(attackEffect, attackTransfrom, false));
     }
 
 
     public override void Skill1(Entity entity)
     {
         //casting
-        StartCoroutine(SkillEffectManage(skillEffect[0], skillTransfrom[0]));
+        entity.animator.SetTrigger("SKILL1");
+        StartCoroutine(SkillEffectManage(skillEffect[0], skillTransfrom[0], false));
     }
 
     public override void Skill2(Entity entity)
     {
-        StartCoroutine(SkillEffectManage(skillEffect[1], skillTransfrom[1]));
+        StartCoroutine(SkillEffectManage(skillEffect[1], skillTransfrom[1], false));
     }
 
     public override void Skill3(Entity entity)
     {
-        StartCoroutine(SkillEffectManage(skillEffect[2], skillTransfrom[2]));
+        entity.animator.SetTrigger("SKILL3");
+        StartCoroutine(SkillEffectManage(skillEffect[2], skillTransfrom[2], false));
     }
 
     public override void Skill4(Entity entity)
     {
         //casting
         entity.animator.SetTrigger("SKILL4");
-        StartCoroutine(SkillEffectManage(skillEffect[3], skillTransfrom[3]));
+        StartCoroutine(SkillEffectManage(skillEffect[3], skillTransfrom[3], false));
     }
 
     public override void CASTING(Entity entity, int num)

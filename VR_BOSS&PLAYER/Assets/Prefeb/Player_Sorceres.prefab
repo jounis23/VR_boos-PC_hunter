@@ -24,11 +24,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421874846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: 0.754}
+  m_LocalPosition: {x: 0.26341432, y: 1.3246945, z: 0.7044168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5856691050121442017}
-  m_RootOrder: 0
+  m_Father: {fileID: 2027343499030373941}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &975987540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975987541}
+  m_Layer: 0
+  m_Name: AttactTransfrom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &975987541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975987540}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.322, y: 1.577, z: 1.106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2027343499030373941}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154038584
 GameObject:
@@ -1089,17 +1119,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   className: 3
-  type: 06000000070000000800000009000000
-  attackEffect: {fileID: 0}
+  type: 0a00000007000000080000000a000000
+  attackEffect: {fileID: 6688166790161785001, guid: c916f32fc2c73784aa79f8361cc43bc3,
+    type: 3}
+  attackTransfrom: {fileID: 975987541}
   skillEffect:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 8588857477812791744, guid: f1c7f26f5816fd544b0f62bf915139da, type: 3}
+  - {fileID: 141900, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+  - {fileID: 6688166790161785001, guid: c916f32fc2c73784aa79f8361cc43bc3, type: 3}
+  - {fileID: 2548333195731898081, guid: ae130f38169f04d4990028fd19ccd566, type: 3}
+  - {fileID: 1408569588871106899, guid: 7ee911740f7533c48992ba12ae41c9e3, type: 3}
   skillTransfrom:
   - {fileID: 1154038585}
   - {fileID: 421874847}
-  - {fileID: 421874847}
+  - {fileID: 1154038585}
   - {fileID: 1154038585}
   mark: {fileID: 1601494591900918, guid: 61ee9554f7c3b03408fc8258477fddf5, type: 3}
   markTransfrom: {fileID: 1154038585}
@@ -1377,21 +1409,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbcf89f5d8c40aa4592714fe5e49510b, type: 3}
---- !u!4 &2027343499030373941 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9047075352557602278, guid: fbcf89f5d8c40aa4592714fe5e49510b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7038907630789878739}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &6437938433540132137 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4104784593733480186, guid: fbcf89f5d8c40aa4592714fe5e49510b,
     type: 3}
   m_PrefabInstance: {fileID: 7038907630789878739}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5856691050121442017 stripped
+--- !u!4 &2027343499030373941 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3524097806895075634, guid: fbcf89f5d8c40aa4592714fe5e49510b,
+  m_CorrespondingSourceObject: {fileID: 9047075352557602278, guid: fbcf89f5d8c40aa4592714fe5e49510b,
     type: 3}
   m_PrefabInstance: {fileID: 7038907630789878739}
   m_PrefabAsset: {fileID: 0}
