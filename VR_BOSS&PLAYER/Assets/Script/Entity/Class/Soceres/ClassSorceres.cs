@@ -46,7 +46,8 @@ public class ClassSorceres : ClassEntity
 
     IEnumerator CastingState(Entity entity, int num)
     {
-        markTransfrom.position = new Vector3(0, 0, 0);
+        markTransfrom.position = entity.player.transform.position;
+        markTransfrom.rotation = entity.player.transform.rotation;
         GameObject marker = Instantiate(mark, markTransfrom);
         float moveX;
         float moveY;
@@ -57,10 +58,11 @@ public class ClassSorceres : ClassEntity
 
             moveX = Input.GetAxis("Horizontal");
             moveY = Input.GetAxis("Vertical");
-            Vector3 Position = marker.transform.position;
-            Position.x += moveX * Time.deltaTime * 3;
-            Position.z += moveY * Time.deltaTime * 3;
-            marker.transform.position = Position;
+            //Vector3 Position = marker.transform.position;
+            //Position.x += moveX * Time.deltaTime * 3;
+            //Position.z += moveY * Time.deltaTime * 3;
+            marker.transform.Translate(new Vector3(moveX, 0, moveY) * 3 * Time.deltaTime);
+            //marker.transform.position = Position;
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);

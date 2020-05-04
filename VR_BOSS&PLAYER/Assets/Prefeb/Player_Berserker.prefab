@@ -427,11 +427,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     nameEntity: 
-    hp: 100
-    hpMax: 100
-    atk: 50
-    def: 10
-    speed: 1
+    hp: 11000
+    hpMax: 11000
+    atk: 700
+    def: 150
+    speed: 8
   animator: {fileID: 9173085217455227718}
   state: 0
   textState: {fileID: 0}
@@ -451,6 +451,12 @@ MonoBehaviour:
   - 3
   - 3
   - 3
+  skillresetTime:
+  - 0
+  - 0
+  - 0
+  - 0
+  casting: 0
   classEntity: {fileID: 8349918097928537205}
 --- !u!114 &8349918097928537205
 MonoBehaviour:
@@ -465,6 +471,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   className: 1
+  type: 06000000070000000800000009000000
+  attackEffect: {fileID: 0}
+  attackTransfrom: {fileID: 0}
   skillEffect: []
   skillTransfrom: []
 --- !u!1 &8349918098016095057

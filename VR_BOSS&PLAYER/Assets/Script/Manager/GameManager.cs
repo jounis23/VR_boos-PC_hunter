@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject VRPlayer;
+    public GameObject PCPlayer;
 
     public static GameManager instance
     {
@@ -35,6 +38,16 @@ public class GameManager : MonoBehaviour
         {
             // 자신을 파괴
             Destroy(gameObject);
+        }
+
+        if (XRDevice.isPresent)
+        {
+            player = VRPlayer;
+        }
+        else
+        {
+            player = PCPlayer;
+            XRSettings.enabled = false;
         }
     }
 

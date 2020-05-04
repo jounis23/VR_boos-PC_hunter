@@ -356,11 +356,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     nameEntity: 
-    hp: 10
-    hpMax: 10
-    atk: 10
-    def: 10
-    speed: 1
+    hp: 8500
+    hpMax: 8500
+    atk: 600
+    def: 150
+    speed: 12
   animator: {fileID: 265557125311499028}
   state: 0
   textState: {fileID: 0}
@@ -380,6 +380,12 @@ MonoBehaviour:
   - 6
   - 7
   - 3
+  skillresetTime:
+  - 0
+  - 0
+  - 0
+  - 0
+  casting: 0
   classEntity: {fileID: 0}
 --- !u!1 &5963230993944789532
 GameObject:

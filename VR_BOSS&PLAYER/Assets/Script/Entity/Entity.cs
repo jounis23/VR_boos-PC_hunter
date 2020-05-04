@@ -19,6 +19,7 @@ public class Entity : MonoBehaviourPun
 
     public Status status;
 
+    public GameObject player;
     public Animator animator;
 
     public enum STATE
@@ -72,7 +73,8 @@ public class Entity : MonoBehaviourPun
 
     protected void Move(float x, float z)
     {
-        this.transform.position += new Vector3(x * status.speed * 0.1f , 0, z * status.speed * 0.1f);
+        //player.transform.position += new Vector3(x * status.speed * 0.01f , 0, z * status.speed * 0.01f);
+        transform.Translate(new Vector3(x, 0, z) * status.speed * 0.01f * Time.deltaTime);
     }
 
 
@@ -123,6 +125,7 @@ public class Entity : MonoBehaviourPun
     {
 
     }
+
 
 
     private void LateUpdate()

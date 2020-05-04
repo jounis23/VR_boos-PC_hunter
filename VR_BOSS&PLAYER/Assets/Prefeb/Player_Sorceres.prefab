@@ -83,12 +83,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154038584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7038907631214112011}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7038907629634236092
 GameObject:
@@ -716,8 +716,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7038907630668042419}
-  m_Father: {fileID: 7038907631214112011}
-  m_RootOrder: 0
+  m_Father: {fileID: 2027343499030373941}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 18, y: 0, z: 0}
 --- !u!20 &7038907630407878714
 Camera:
@@ -1055,7 +1055,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7038907630407878660}
   - {fileID: 2027343499030373941}
   - {fileID: 1154038585}
   m_Father: {fileID: 0}
@@ -1075,11 +1074,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     nameEntity: 
-    hp: 0
-    hpMax: 0
-    atk: 0
-    def: 0
-    speed: 0
+    hp: 9000
+    hpMax: 9000
+    atk: 500
+    def: 150
+    speed: 8
+  player: {fileID: 0}
   animator: {fileID: 6437938433540132137}
   state: 0
   textState: {fileID: 0}
@@ -1105,6 +1105,8 @@ MonoBehaviour:
   - 0
   - 0
   casting: 0
+  rotationSpeed: 5
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
   classEntity: {fileID: 7038907631214112021}
 --- !u!114 &7038907631214112021
 MonoBehaviour:
@@ -1307,6 +1309,11 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.12548304
       objectReference: {fileID: 0}
+    - target: {fileID: 4104784593680259067, guid: fbcf89f5d8c40aa4592714fe5e49510b,
+        type: 3}
+      propertyPath: m_WorldVelocityScale
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4104784593733480186, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_Controller
@@ -1316,6 +1323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104784594000314546, guid: fbcf89f5d8c40aa4592714fe5e49510b,
+        type: 3}
+      propertyPath: m_WorldVelocityScale
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4116875107943016276, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
@@ -1390,7 +1402,7 @@ PrefabInstance:
     - target: {fileID: 9047075352557602278, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9047075352557602278, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}

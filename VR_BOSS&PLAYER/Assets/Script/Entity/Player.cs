@@ -5,19 +5,26 @@ using UnityEngine.UI;
 
 public class Player : Entity
 {
-
+    private Camera MainCam;
     private float moveX;
     private float moveY;
 
+    private Vector3 gap;
+    public float rotationSpeed = 10;
+    public Quaternion targetRotation;
     private bool canMoveX = true;
     private bool canMoveY = true;
 
-    
+
     //public Rigidbody rigid;
 
 
     // 각 직업별 스킬 구현 클래스
     public ClassEntity classEntity;
+    private void Awake()
+    {
+        MainCam = Camera.main;
+    }
 
     void Start()
     {
@@ -30,7 +37,6 @@ public class Player : Entity
         //rigid = GetComponent<Rigidbody>();
         //SetStatus("PlayerA", 100, 10, 10, 0.5f);
     }
-
 
     void Update()
     {
@@ -48,8 +54,28 @@ public class Player : Entity
         // 행동 키 입력받기
         // (움직임 외의 행동)
         InputAction();
+
+        //카메라에 맞춰 캐릭터 이동
+        CameraMove();
+
     }
 
+    public void CameraMove()
+    {
+        if (player.transform.rotation != targetRotation)
+            player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        gap.x += Input.GetAxis("Mouse Y") * rotationSpeed * -1;
+        gap.y += Input.GetAxis("Mouse X") * rotationSpeed;
+
+        gap.x = Mathf.Clamp(gap.x, -5f, 85f);
+        targetRotation = Quaternion.Euler(gap);
+        Quaternion q = targetRotation;
+        q.x = q.z = 0;
+
+        player.transform.rotation = q;
+        //float mouseX = Input.GetAxis("Mouse X");
+        //player.transform.Rotate(Vector3.up * rotationSpeed * mouseX * Time.deltaTime);
+    }
 
 
 
@@ -153,7 +179,7 @@ public class Player : Entity
                 classEntity.Attack(this);
             }
         }
-        
+
         // 스킬1
         if (Input.GetKeyDown(skillKey[0]))
         {
@@ -246,7 +272,7 @@ public class Player : Entity
 
             return true;
         }
-        else if(nextState == STATE.CASTING)
+        else if (nextState == STATE.CASTING)
         {
             state = STATE.CASTING;
             animator.SetTrigger("CASTING");

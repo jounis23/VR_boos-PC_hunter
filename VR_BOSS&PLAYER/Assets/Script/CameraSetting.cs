@@ -11,7 +11,9 @@ public class CameraSetting : MonoBehaviourPun
     {
         if (!photonView.IsMine)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            GetComponent<Camera>().enabled = false;
+            GetComponent<AudioListener>().enabled = false;
         }
 
 
