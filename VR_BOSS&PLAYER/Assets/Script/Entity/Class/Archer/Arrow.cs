@@ -8,7 +8,17 @@ public class Arrow : MonoBehaviour
     float atk;
     float size;
     public ArrowExplosion collEffect;
+    private Entity.STATE state;
+    private Entity.Status status;
+    private ClassBerserker.DetailStatus detailStatus;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        state = this.transform.root.GetComponent<Player>().state;
+        status = this.transform.root.GetComponent<Player>().status;
+        detailStatus = this.transform.root.GetComponent<ClassBerserker>().detailStatus;
+    }
 
     // Start is called before the first frame update
     void Awake()

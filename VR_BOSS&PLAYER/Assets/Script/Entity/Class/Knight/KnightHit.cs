@@ -4,36 +4,44 @@ using UnityEngine;
 
 public class KnightHit : MonoBehaviour
 {
-    public Player player;
+    private Entity.STATE state;
+    private Entity.Status status;
+    private ClassKnight.DetailStatus detailStatus;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = this.transform.root.GetComponent<Player>().state;
+        status = this.transform.root.GetComponent<Player>().status;
+        detailStatus = this.transform.root.GetComponent<ClassKnight>().detailStatus;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
-        Player enemy = other.GetComponent<Player>();
-        switch (player.state)
+        Entity.Status enemy = other.transform.root.GetComponent<Player>().status;
+        switch (state)
         {
             case Entity.STATE.ATTACK:
-                enemy.status.hp -= player.status.atk - enemy.status.def;
+                enemy.hp -= status.atk - enemy.def;
+                StartCoroutine(hit(1f));
                 break;
             case Entity.STATE.SKILL1:
-                Debug.Log("hit");
-                player.GetComponent<ClassKnight>().Skill1Active();
+                enemy.hp -= detailStatus.skill1_damge - enemy.def;
+                StartCoroutine(hit(1f));
                 break;
             case Entity.STATE.SKILL4:
-                player.GetComponent<ClassKnight>().Skill4Active();
+                enemy.hp -= detailStatus.skill4_damge - enemy.def;
+                this.transform.root.GetComponent<ClassKnight>().Skill4Active();
                 break;
 
         }
+    }
+
+    IEnumerator hit(float t)
+    {
+        this.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(t);
+        this.GetComponent<Collider>().enabled = true;
     }
 
 }

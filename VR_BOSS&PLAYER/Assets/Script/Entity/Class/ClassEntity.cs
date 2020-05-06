@@ -37,7 +37,6 @@ public class ClassEntity : MonoBehaviour
                 type[3] = Entity.STATE.CASTING;
                 break;
         }
-        Debug.Log(type[0]);
     }
     public virtual void Attack(Entity entity)
     {

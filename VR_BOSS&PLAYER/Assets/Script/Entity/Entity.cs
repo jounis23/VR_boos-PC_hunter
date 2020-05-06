@@ -11,6 +11,7 @@ public class Entity : MonoBehaviourPun
     {
         public string nameEntity;
         public float hp;
+        public float mp;
         public float hpMax;
         public float atk;
         public float def;

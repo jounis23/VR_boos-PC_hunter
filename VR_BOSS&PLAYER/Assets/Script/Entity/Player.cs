@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Player : Entity
 {
-    private Camera MainCam;
+    private bool isPlayer = false;
+
+    public GameObject mainCam;
     private float moveX;
     private float moveY;
 
@@ -23,12 +25,14 @@ public class Player : Entity
     public ClassEntity classEntity;
     private void Awake()
     {
-        MainCam = Camera.main;
+
     }
 
     void Start()
     {
         InitPlayer();
+        if (mainCam.activeSelf == true)
+            isPlayer = true;
     }
 
     public void InitPlayer()
@@ -40,6 +44,10 @@ public class Player : Entity
 
     void Update()
     {
+        //플레이어 캐릭터만 활성화
+        if (isPlayer)
+        {
+
         /*
         if (!photonView.IsMine)
             return;
@@ -57,6 +65,7 @@ public class Player : Entity
 
         //카메라에 맞춰 캐릭터 이동
         CameraMove();
+        }
 
     }
 

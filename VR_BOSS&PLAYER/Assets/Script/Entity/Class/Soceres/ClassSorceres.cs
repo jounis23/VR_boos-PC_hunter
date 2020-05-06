@@ -58,11 +58,7 @@ public class ClassSorceres : ClassEntity
 
             moveX = Input.GetAxis("Horizontal");
             moveY = Input.GetAxis("Vertical");
-            //Vector3 Position = marker.transform.position;
-            //Position.x += moveX * Time.deltaTime * 3;
-            //Position.z += moveY * Time.deltaTime * 3;
             marker.transform.Translate(new Vector3(moveX, 0, moveY) * 3 * Time.deltaTime);
-            //marker.transform.position = Position;
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
