@@ -7,9 +7,8 @@ public class ClassBerserker : ClassEntity
     [System.Serializable]
     public struct DetailStatus
     {
-        public float skill1_spendDamageDebuff;
         public float skill1_healBuff;
-        public bool skill1_staticDamageBuff;
+        public bool skill1_trueDamageBuff;
 
         public float skill2_damage;
         public float skill2_spendHp;
@@ -34,37 +33,38 @@ public class ClassBerserker : ClassEntity
     public override void Skill1(Entity entity)
     {
         StartCoroutine(SkillEffectManage(skillEffect[0], skillTransfrom[0]));
+        StartCoroutine(Skill1Active());
     }
 
     public override void Skill2(Entity entity)
     {
-        entity.status.hp -= detailStatus.skill2_spendHp;
+        entity.Attacked(detailStatus.skill2_spendHp,true);
         StartCoroutine(SkillEffectManage(skillEffect[1], skillTransfrom[1]));
     }
 
     public override void Skill3(Entity entity)
     {
-        entity.status.hp -= detailStatus.skill3_spendHp;
+        entity.Attacked(detailStatus.skill2_spendHp, true);
         StartCoroutine(SkillEffectManage(skillEffect[2], skillTransfrom[2]));
     }
 
     public override void Skill4(Entity entity)
     {
-        entity.status.hp -= detailStatus.skill4_spendHp;
+        entity.Attacked(detailStatus.skill2_spendHp, true);
     }
     public void Skill4Active()
     {
         StartCoroutine(SkillEffectManage(skillEffect[3], skillTransfrom[3], false));
     }
 
-    IEnumerator Skill1Active()
+    IEnumerator Skill1Active(float time = 20f)
     {
-        detailStatus.skill1_staticDamageBuff = true;
+        detailStatus.skill1_trueDamageBuff = true;
         detailStatus.skill2_healHp += detailStatus.skill1_healBuff;
         detailStatus.skill3_healHp += detailStatus.skill1_healBuff; 
         detailStatus.skill4_healHp += detailStatus.skill1_healBuff;
-        yield return new WaitForSeconds(20f);
-        detailStatus.skill1_staticDamageBuff = false;
+        yield return new WaitForSeconds(time);
+        detailStatus.skill1_trueDamageBuff = false;
         detailStatus.skill2_healHp -= detailStatus.skill1_healBuff;
         detailStatus.skill3_healHp -= detailStatus.skill1_healBuff;
         detailStatus.skill4_healHp -= detailStatus.skill1_healBuff;

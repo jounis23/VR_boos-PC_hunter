@@ -98,9 +98,15 @@ public class Entity : MonoBehaviourPun
             status.hp = status.hpMax;
     }
 
-    public void Attacked(float damage)
+
+
+
+    public void Attacked(float damage, bool isTrueDamage = false)
     {
-        status.hp -= (damage * (1 - status.def));
+        if(isTrueDamage)
+            status.hp -= damage;
+        else
+            status.hp -= (damage * (1 - status.def));
         Debug.Log(this.name + " : " + status.hp);
 
         if (status.hp <= 0)
@@ -108,6 +114,15 @@ public class Entity : MonoBehaviourPun
             status.hp = 0;
             Die();
         }
+    }
+
+    public bool SpendMp(float amount)
+    {
+        if (status.mp - amount <= 0.0001f)
+            return false;
+        status.mp -= amount;
+
+        return true;
     }
 
     private void Die()

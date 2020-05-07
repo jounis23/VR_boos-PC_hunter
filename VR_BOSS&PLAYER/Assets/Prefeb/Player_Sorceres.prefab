@@ -703,7 +703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7038907630407878660
 Transform:
   m_ObjectHideFlags: 0
@@ -1075,13 +1075,10 @@ MonoBehaviour:
   status:
     nameEntity: 
     hp: 9000
+    mp: 0
     hpMax: 9000
     atk: 500
-    skill1: 0
-    skill2: 0
-    skill3: 0
-    skill4: 0
-    def: 150
+    def: 0.35
     speed: 8
   player: {fileID: 3060701666965836838}
   animator: {fileID: 6437938433540132137}
@@ -1140,8 +1137,9 @@ MonoBehaviour:
   - {fileID: 421874847}
   - {fileID: 1154038585}
   - {fileID: 1154038585}
+  casting: {fileID: 7979684801720108942, guid: be07275641fd6c5499b6fcff8d52df95, type: 3}
   mark: {fileID: 1601494591900918, guid: 61ee9554f7c3b03408fc8258477fddf5, type: 3}
-  markTransfrom: {fileID: 1154038585}
+  castingTransform: {fileID: 1154038585}
 --- !u!1 &7038907631600263090
 GameObject:
   m_ObjectHideFlags: 0

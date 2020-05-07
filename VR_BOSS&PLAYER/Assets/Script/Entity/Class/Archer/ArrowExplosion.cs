@@ -22,7 +22,7 @@ public class ArrowExplosion : MonoBehaviour
         Debug.Log("ASDF");
         if (other.CompareTag("Boss"))
         {
-            other.GetComponent<Entity>().Attacked(atk);
+            other.transform.root.GetComponent<Entity>().Attacked(atk);
             Debug.Log(other.name + " : " + atk);
         }
     }

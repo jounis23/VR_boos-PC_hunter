@@ -200,16 +200,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Archer
       objectReference: {fileID: 0}
-    - target: {fileID: 5963230993910568972, guid: c930c80f289e0b8408faa5a3a9b14ca5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5963230993910568972, guid: c930c80f289e0b8408faa5a3a9b14ca5,
-        type: 3}
-      propertyPath: m_TagString
-      value: test
-      objectReference: {fileID: 0}
     - target: {fileID: 5963230993910568974, guid: c930c80f289e0b8408faa5a3a9b14ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1023,11 +1013,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Sorceres
       objectReference: {fileID: 0}
-    - target: {fileID: 7038907631214112020, guid: f2875b7d7ec8c2140876dff0a776ddd3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2875b7d7ec8c2140876dff0a776ddd3, type: 3}
 --- !u!1001 &8349918097898846075
@@ -1096,6 +1081,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_Berserker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349918097928537206, guid: 66a3d237e07cded4fb055926cf92b65e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349918098056564333, guid: 66a3d237e07cded4fb055926cf92b65e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a3d237e07cded4fb055926cf92b65e, type: 3}

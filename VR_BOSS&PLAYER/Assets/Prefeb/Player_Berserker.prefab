@@ -117,8 +117,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.43, z: 0.09}
-  m_Center: {x: -0.041569527, y: -0.06509303, z: -0.1285643}
+  m_Size: {x: 0.7, y: 1.0176069, z: 0.09000001}
+  m_Center: {x: -0.041569944, y: -0.35889655, z: -0.12856336}
 --- !u!114 &1465703066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbb8985c9be5864bae3aec0807e99e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerClass: {fileID: 8349918097928537206}
 --- !u!1 &8349918097213127635
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +523,7 @@ GameObject:
   - component: {fileID: 8349918097928537205}
   m_Layer: 0
   m_Name: Player_Berserker
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,13 +558,10 @@ MonoBehaviour:
   status:
     nameEntity: 
     hp: 11000
+    mp: 0
     hpMax: 11000
     atk: 700
-    skill1: 0
-    skill2: 500
-    skill3: 700
-    skill4: 2000
-    def: 150
+    def: 0.3
     speed: 8
   player: {fileID: 895289923257571907}
   animator: {fileID: 9173085217455227718}
@@ -593,7 +589,7 @@ MonoBehaviour:
   - 0
   - 0
   casting: 0
-  mainCam: {fileID: 3576726556575457913}
+  mainCam: {fileID: 8349918098056564333}
   rotationSpeed: 10
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
   classEntity: {fileID: 8349918097928537205}
@@ -623,12 +619,18 @@ MonoBehaviour:
   - {fileID: 984753200}
   - {fileID: 984753200}
   - {fileID: 984753200}
-  skill2_spendHp: 1500
-  skill2_heals: 300
-  skill3_spendHp: 1000
-  skill3_heals: 500
-  skill4_spendHp: 2000
-  skill4_heals: 2000
+  detailStatus:
+    skill1_healBuff: 150
+    skill1_trueDamageBuff: 0
+    skill2_damage: 500
+    skill2_spendHp: 1500
+    skill2_healHp: 300
+    skill3_damage: 700
+    skill3_spendHp: 1000
+    skill3_healHp: 500
+    skill4_damage: 2000
+    skill4_spendHp: 2000
+    skill4_healHp: 0
 --- !u!1 &8349918098016095057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Berserker_Style (4) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9190838811701327108, guid: 48d870cce7005344b9585c8acb72e54f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d870cce7005344b9585c8acb72e54f, type: 3}
 --- !u!1 &895289923257571907 stripped
@@ -1447,21 +1454,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8349918097776684871}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8429172530623242380 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 511916692177342411, guid: 48d870cce7005344b9585c8acb72e54f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8349918097776684871}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3576726556575457913 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4774883915833232702, guid: 48d870cce7005344b9585c8acb72e54f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8349918097776684871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &9173085217455227718 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 913533781378067457, guid: 48d870cce7005344b9585c8acb72e54f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8349918097776684871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8429172530623242380 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 511916692177342411, guid: 48d870cce7005344b9585c8acb72e54f,
     type: 3}
   m_PrefabInstance: {fileID: 8349918097776684871}
   m_PrefabAsset: {fileID: 0}
