@@ -5,13 +5,11 @@ using Photon.Pun;
 
 public class Initinalize : MonoBehaviour
 {
-    public GameObject obj;
 
 
 
     void Start()
     {
-        PhotonNetwork.Instantiate(obj.name, Vector3.zero, Quaternion.identity);
 
         //if(PhotonNetwork.IsMasterClient)
         //    PhotonNetwork.Instantiate("LoginManager", Vector3.zero, Quaternion.identity);

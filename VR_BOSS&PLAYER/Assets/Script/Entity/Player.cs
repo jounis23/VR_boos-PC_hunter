@@ -303,6 +303,7 @@ public class Player : Entity
             case STATE.SKILL3:
             case STATE.SKILL4:
             case STATE.ATTACKED:
+            case STATE.CASTING:
             case STATE.JUMP:
                 StartCoroutine(AnimationState());
                 break;

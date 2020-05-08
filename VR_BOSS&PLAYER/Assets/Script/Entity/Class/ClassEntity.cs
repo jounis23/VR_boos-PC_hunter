@@ -86,7 +86,6 @@ public class ClassEntity : MonoBehaviour
             skill.transform.parent = null;
         Destroy(skill, 5);
         yield return new WaitForSeconds(0.1f);
-
     }
 
 }

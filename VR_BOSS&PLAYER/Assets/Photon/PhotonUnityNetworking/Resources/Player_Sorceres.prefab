@@ -87,8 +87,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7038907631214112011}
-  m_RootOrder: 1
+  m_Father: {fileID: 2027343499030373941}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7038907629634236092
 GameObject:
@@ -1056,7 +1056,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2027343499030373941}
-  - {fileID: 1154038585}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1075,8 +1074,9 @@ MonoBehaviour:
   status:
     nameEntity: 
     hp: 9000
-    mp: 0
+    mp: 1000
     hpMax: 9000
+    mpMax: 0
     atk: 500
     def: 0.35
     speed: 8
@@ -1124,22 +1124,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: 3
   type: 0a00000007000000080000000a000000
-  attackEffect: {fileID: 6688166790161785001, guid: c916f32fc2c73784aa79f8361cc43bc3,
+  attackEffect: {fileID: 7965145880346511032, guid: 1a82acb4068e8f6468b83b773b3a0d5e,
     type: 3}
   attackTransfrom: {fileID: 975987541}
   skillEffect:
   - {fileID: 141900, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
   - {fileID: 6688166790161785001, guid: c916f32fc2c73784aa79f8361cc43bc3, type: 3}
-  - {fileID: 121928, guid: 313e5c5f850e5be429d4a6787a725f73, type: 3}
-  - {fileID: 1614648838348040, guid: 6b12f08cfea33d1429a5fb9ca7e5f9fe, type: 3}
+  - {fileID: 4045555360641034710, guid: 31d36f07d2bf85d44adbb6113a3e6052, type: 3}
+  - {fileID: 7091367612010023068, guid: 9efe8c4bea56c6147889cc8318308486, type: 3}
   skillTransfrom:
   - {fileID: 1154038585}
   - {fileID: 421874847}
   - {fileID: 1154038585}
   - {fileID: 1154038585}
-  casting: {fileID: 7979684801720108942, guid: be07275641fd6c5499b6fcff8d52df95, type: 3}
-  mark: {fileID: 1601494591900918, guid: 61ee9554f7c3b03408fc8258477fddf5, type: 3}
+  mark: {fileID: 4320092233378044609, guid: be07275641fd6c5499b6fcff8d52df95, type: 3}
   castingTransform: {fileID: 1154038585}
+  hitTransform: {fileID: 0}
+  detailStatus:
+    skill1_healHp: 1500
+    skill1_spendMp: 400
+    skill2_healHp: 400
+    skill2_healCount: 10
+    skill2_spendMp: 250
+    skill3_damage: 1000
+    skill3_slow: 3
+    skill3_spendMp: 200
+    skill4_damage: 1500
+    skill4_spendMp: 300
 --- !u!1 &7038907631600263090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,17 +1311,17 @@ PrefabInstance:
     - target: {fileID: 1867191391666426446, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.01088104
+      value: -0.010881275
       objectReference: {fileID: 0}
     - target: {fileID: 1867191391666426446, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.1536054
+      value: 0.15360543
       objectReference: {fileID: 0}
     - target: {fileID: 1867191391666426446, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.12548304
+      value: 0.12548305
       objectReference: {fileID: 0}
     - target: {fileID: 4104784593680259067, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
@@ -1350,22 +1361,22 @@ PrefabInstance:
     - target: {fileID: 5464822110397773813, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_TagString
-      value: Boss
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7799845891442226247, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.101456895
+      value: -0.101457134
       objectReference: {fileID: 0}
     - target: {fileID: 7799845891442226247, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.3624969
+      value: 0.362497
       objectReference: {fileID: 0}
     - target: {fileID: 7799845891442226247, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.06912993
+      value: 0.06912987
       objectReference: {fileID: 0}
     - target: {fileID: 8377949220731307676, guid: fbcf89f5d8c40aa4592714fe5e49510b,
         type: 3}

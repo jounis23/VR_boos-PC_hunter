@@ -40,5 +40,18 @@ MonoBehaviour:
   - AddPlayer
   - CheckReady
   - StartGame
+  - UpdatePlayer
+  - PlayerReady
+  - AddPlayerList
+  - SstPlayerReady
+  - UpdatePlayerUI
+  - UpdateParameter
+  - UpdateSetting
+  - Initalize
+  - ReadyButtonClick
+  - SelectClass
+  - Ready
+  - UpdateUI
+  - SetPlayerNumber
   DisableAutoOpenWizard: 1
   ShowSettings: 0

@@ -13,6 +13,7 @@ public class Entity : MonoBehaviourPun
         public float hp;
         public float mp;
         public float hpMax;
+        public float mpMax;
         public float atk;
         public float def;
         public float speed;
@@ -90,7 +91,7 @@ public class Entity : MonoBehaviourPun
     }
 
 
-    public void Recovery(float amount)
+    public void RecoveryHp(float amount)
     {
         status.hp += amount;
 
@@ -98,7 +99,13 @@ public class Entity : MonoBehaviourPun
             status.hp = status.hpMax;
     }
 
+    public void RecoveryMp(float amount)
+    {
+        status.mp += amount;
 
+        if (status.mpMax < status.mp)
+            status.mp = status.mpMax;
+    }
 
 
     public void Attacked(float damage, bool isTrueDamage = false)
@@ -115,7 +122,14 @@ public class Entity : MonoBehaviourPun
             Die();
         }
     }
+    public bool SpendHp(float amount)
+    {
+        if (status.hp - amount <= 0.0001f)
+            return false;
+        status.hp -= amount;
 
+        return true;
+    }
     public bool SpendMp(float amount)
     {
         if (status.mp - amount <= 0.0001f)
@@ -123,6 +137,21 @@ public class Entity : MonoBehaviourPun
         status.mp -= amount;
 
         return true;
+    }
+
+    public void SpeedUp(float amount)
+    {
+        status.speed += amount;
+
+    }
+    public void SpeedDown(float amount)
+    {
+        status.speed -= amount;
+
+        if(status.speed <= 0)
+        {
+            status.speed = 0;
+        }
     }
 
     private void Die()

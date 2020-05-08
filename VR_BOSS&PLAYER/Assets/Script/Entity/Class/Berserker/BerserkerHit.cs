@@ -55,7 +55,7 @@ public class BerserkerHit : MonoBehaviour
                     StartCoroutine(hit());
                     break;
             }
-            player.Recovery(heal);
+            player.RecoveryHp(heal);
             if(detailStatus.skill1_trueDamageBuff)
                 other.transform.root.GetComponent<Entity>().Attacked(atk, true);
             else
