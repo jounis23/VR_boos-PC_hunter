@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
+  m_Name: PhotonServerSettings
+  m_EditorClassIdentifier: 
+  AppSettings:
+    AppIdRealtime: 0ebc0963-8ac8-4692-ae19-68bf51a15e9f
+    AppIdChat: 
+    AppIdVoice: 
+    AppVersion: 
+    UseNameServer: 1
+    FixedRegion: 
+    Server: 
+    Port: 0
+    Protocol: 0
+    EnableLobbyStatistics: 0
+    NetworkLogging: 1
+  PunLogging: 0
+  EnableSupportLogger: 0
+  RunInBackground: 1
+  StartInOfflineMode: 0
+  RpcList:
+  - AccessDB
+  - ClickRpc
+  - DestroyRpc
+  - DestroySpaceship
+  - Fire
+  - LoadPlayScene
+  - Regist
+  - RespawnSpaceship
+  - AddPlayer
+  - CheckReady
+  - StartGame
+  - UpdatePlayer
+  - PlayerReady
+  - AddPlayerList
+  - SstPlayerReady
+  - UpdatePlayerUI
+  - UpdateParameter
+  - UpdateSetting
+  - Initalize
+  - ReadyButtonClick
+  - SelectClass
+  - Ready
+  - UpdateUI
+  - SetPlayerNumber
+  - LetsPlay
+  - SetVR
+  - ReadyVR
+  - UpdateUIVR
+  - LetsGame
+  - UpdateBossUICount
+  - RecoveryHp
+  - RecoveryMp
+  - Attacked
+  - Die
+  - StartPlayRPC
+  - UpdateUIPC
+  - DecreaseHp
+  - DecreaseMp
+  - SpeedUp
+  - SpeedDown
+  - MoveRig
+  - SetActiveFalse
+  - SkillOne
+  - TryTeleport
+  - BladeOff
+  - BladeOn
+  - ArrowShotRPC
+  - ArrowExplosionRPC
+  - Skill4EffectRPC
+  - SkillEffectRPC
+  - SkillEffectDisableRPC
+  - SkillEffectEnableRPC
+  - AttackedRPC
+  - DecreaseHpRPC
+  - DecreaseMpRPC
+  - RecoveryHpRPC
+  - RecoveryMpRPC
+  - SpeedDownRPC
+  - SpeedUpRPC
+  - DieRPC
+  - SkillRPC
+  - UpdateHpRPC
+  - UpdateMpRPC
+  - SkillOneRPC
+  - MoveRigRPC
+  - Skill_2_RPC
+  - SetActiveAuraRPC
+  - SetDamage
+  - InitRPC
+  - Init2RPC
+  - UpdateSpeedRPC
+  - UpdateDefRPC
+  - UpdateAtkRPC
+  - Init3RPC
+  - Skill_3_RPC
+  - InitArcherEffectRPC
+  - InitBerserkerEffectRPC
+  - InitSorceresEffectRPC
+  - MagicShotRPC
+  - SkillEffectSetActiveRPC
+  - Skill_4_RPC
+  DisableAutoOpenWizard: 1
+  ShowSettings: 1

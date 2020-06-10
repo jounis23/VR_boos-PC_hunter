@@ -1,8 +1,0 @@
-2020-04-21 19:42:48 = Host : Entry Room
-2020-04-21 19:43:30 = Client_2001 : Entry Room
-2020-04-21 19:45:54 = Host : Entry Room
-2020-04-21 = Host : Access DataBase ( Regist = Id : 44444444 / Password : 5555555555)
-			Register Success
-2020-04-21 19:46:32 = Client_2001 : Entry Room
-2020-04-21 19:49:21 = Host : Entry Room
-2020-04-22 15:14:41 = Host : Entry Room
